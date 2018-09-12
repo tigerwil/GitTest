@@ -1,0 +1,191 @@
+@charset "utf-8";
+/* CoffeeBuzz chapter 4-5 CSS Document */
+
+/*********************************** GENERAL RULES *********************************/
+
+/*  apply a natural box layout model to all elements  */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+html {
+	/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	/* background-size property is set to "cover", the background image will scale to cover the entire content area. 
+	Note: The "cover" value keeps the aspect ratio, and some part of the background image may be clipped */
+	background: url('../img/bg.jpg') no-repeat center center fixed;
+	background-size: cover;
+
+}
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	/*background: rgba(255,255,255,0.8);*/
+	margin: 0;
+	padding:0;
+	width: 100%;
+}
+
+/* Pseudo-classes for anchor <a> tag
+	1. a:link
+	2. a:visited
+	3. a:focus
+	4. a:hover
+	5. a:active
+	
+Note:  must be in this order, but ok to omit one or more
+*/
+
+/*a:link{color:#300;}
+a:visited{color:#b64429;}*/
+a:link{color:#fff;}
+a:visited{color:#fff;}
+/*a:focus,a:hover{color:#1f242f}*/
+
+/***********************************  HEADER  *********************************/
+/*
+	header:  ancestor
+	    h1:  descendant
+*/
+
+header {
+	color:#fff;
+	text-align:center;
+	padding: 1rem 2%;
+	height:300px; /*mwiliams: 2018 */
+}
+
+
+header h1{
+	margin:0;/* not necessary when using reset.css */
+	text-shadow:-2px -2px 4px #000;
+	font-size:5em;	
+	
+	/*
+	REM vs EM
+	rem:  Relative to font-size of the root element
+	REM as in Root EM
+	While em is relative to the font size of its direct or nearest parent, rem is only relative to the html (root) font-size. I like to think of it as a reset. If a style sheet is built in a modular fashion, then rem shouldn’t be needed very often, but it can be handy at times.
+
+	For example, if you’re trying to achieve consistent spacing without extra markup, rem can be used to define the padding and margins.
+	1rem would always take on the value of 16px no matter where you set it (unless you changed the font-size of <html>
+	*/
+}
+
+/*header h1:first-letter{font-size:125%}*/ /* CSS3 Pseudo-elements */
+
+
+/* when using reset.css 
+ header h1 {
+    font-size: 2rem;
+    font-weight: 700; 
+}
+  header h2 {
+    font-size: 1.2rem;
+    font-weight: 300; 
+}
+*/
+
+/*************************************  NAVIGATION  *********************************/
+nav ul{
+	list-style:none;/*remove default bullets: not required when using reset.css*/
+	margin:0; /*remove default margin: not required when using reset.css*/
+	padding:0;/*remove default padding: not required when using reset.css*/
+}
+nav ul li {
+	float: left;
+	width: 25%;
+	/*background: rgba(20, 2, 0, 0.8);*/
+	background:#000;
+	/*border-right: 1px solid rgba(103, 76, 55, 0.3);*/
+}
+
+/* CVSS3 Pseudo-class*/
+/*nav ul li:last-child {
+	border-right: none;
+}*/
+nav ul li a {
+	display: block;
+	text-align: center;
+	font-weight: 700;
+	padding: .5rem 0;
+	text-decoration: none;
+	transition: background 0.95s ease, color 0.95s ease;
+	font-size: 14px;
+}
+
+/*nav ul li.active a {
+	color: #593620;
+	background: rgba(103, 76, 55, 0.5);
+}*/
+nav ul li.active a, nav ul li a:hover,nav ul li a:focus {
+	background: rgba(102,58,29,0.7);
+	/*color:#000;*/
+}
+
+
+
+/***********************************  MAIN SECTION  *********************************/
+main{
+	padding: 0 .85rem;
+}
+section{
+	background: rgba(255,255,255,0.8);
+	margin-top:1rem;
+	padding: 1rem;
+	
+}
+/* RESPONSIVE IMAGES:  https://www.w3schools.com/css/css_rwd_images.asp */
+#splash img{	
+	max-width:100%;
+	/*Responsive img:
+	  Set max-width to 100%, the image will scale down if it has to, but never scale up to be larger than its original size
+	
+	  If the width property is set to 100%, the image will be responsive and scale up and down
+	*/
+	padding:0.25em;
+	border: 1px dashed #463d2b;		
+}
+
+#shops
+{
+	background: rgba(182, 136, 52,0.8);
+	color: #fff;
+}
+
+
+/************************************** SIDEBAR ************************************/
+
+/************************************* FOOTER *************************************/
+footer{
+	font-size:75%;
+	height:50px;
+	background:rgba(0,0,0,0.5);
+
+}
+
+footer p{
+	color:#fff;
+	text-align:center;
+	padding-top:1.5em;
+}
+
+
+/*************************************  SPECIAL *************************************/
+/*----- row: Force an Element not to collapse -----*/
+.row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+ /*mwiliams: 2018 */
+
+.banner-area {
+  background: url(../img/header-bg2.jpg) center;
+  background-size: cover;
+}
+/* end */
